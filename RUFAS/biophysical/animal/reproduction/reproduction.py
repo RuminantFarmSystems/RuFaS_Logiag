@@ -596,7 +596,7 @@ class Reproduction:
         estrus_cycle = truncnorm.rvs(-animal_constants.STDI, animal_constants.STDI, avg_estrus_cycle, std_estrus_cycle)
         if abs(estrus_cycle) >= max_cycle_length:
             estrus_cycle = max_cycle_length - 1
-        self.estrus_day = int(start_day + abs(estrus_cycle))
+        self.estrus_day = round(start_day + abs(estrus_cycle))
         reproduction_data_stream.events.add_event(
             reproduction_data_stream.days_born, simulation_day, f"{estrus_note} on day {self.estrus_day}"
         )
@@ -1124,7 +1124,7 @@ class Reproduction:
 
     def _calculate_gestation_length(self) -> int:
         """Calculate the gestation length for the heifer."""
-        return int(
+        return round(
             truncnorm.rvs(
                 -animal_constants.STDI,
                 animal_constants.STDI,
