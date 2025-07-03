@@ -177,7 +177,7 @@
           "type": "number",
           "description": "If task type is multi_run, indicates how many single simulations should run.",
           "minimum": 0,
-          "maximum": 500,
+          "maximum": 5000,
           "default": 4
         },
         "sampler": {
